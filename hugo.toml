@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'zh-cn'
 title = 'Chengjin 的技术博客'
-theme = 'ananke'
+theme = 'mtp-theme'
 
 [params]
   author = "Chengjin"
