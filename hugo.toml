@@ -1,9 +1,4 @@
 baseURL = 'https://example.org/'
-languageCode = 'zh-cn'
-title = 'Chengjin 的技术博客'
-theme = 'mtp-theme'
-
-[params]
-  author = "Chengjin"
-  description = "Free AI-Powered Tools and Useful Online Utilities"
-
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = "mtp-theme"

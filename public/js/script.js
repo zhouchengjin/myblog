@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Pulse animation for tech icons
+    const techIcons = document.querySelectorAll('.tech-icon');
+    techIcons.forEach((icon, index) => {
+        icon.style.animationDelay = `${index * 0.3}s`;
+    });
+    
     // 导航链接激活状态切换
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
@@ -18,11 +24,5 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
             navMenu.classList.remove('active');
         });
-    });
-    
-    // Pulse animation for tech icons
-    const techIcons = document.querySelectorAll('.tech-icon');
-    techIcons.forEach((icon, index) => {
-        icon.style.animationDelay = `${index * 0.3}s`;
     });
 });
