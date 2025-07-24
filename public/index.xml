@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>Chengjin 的技术博客</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on Chengjin 的技术博客</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 05 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding MTP: Media Transfer Protocol Basics</title>
+      <link>http://localhost:1313/understanding-mtp/</link>
+      <pubDate>Thu, 05 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/understanding-mtp/</guid>
+      <description>&lt;p&gt;Media Transfer Protocol (MTP) is a set of custom extensions to the Picture Transfer Protocol (PTP) devised by Microsoft for communication with portable devices. Initially developed for use with portable media players, MTP is now widely implemented across smartphones, tablets, and digital cameras.&lt;/p&gt;&#xA;&lt;p&gt;Unlike USB Mass Storage (UMS), MTP doesn&amp;rsquo;t give the host computer direct access to the storage media. Instead, it operates at the file level, which allows for safer transfers and better media management capabilities. This approach prevents potential file system corruption that can occur when a device is disconnected during file transfer operations.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/%E5%93%81%E7%89%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/%E5%93%81%E7%89%8C/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
