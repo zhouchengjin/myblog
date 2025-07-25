@@ -655,10 +655,10 @@
             
             <ul class="nav-menu">
                 <li><a href="#" class="active"><i class="fas fa-blog"></i> Blog</a></li>
-                <li><a href="#"><i class="fas fa-tools"></i> Tools</a></li>
-                <li><a href="#"><i class="fas fa-tags"></i> Tags</a></li>
-                <li><a href="#"><i class="fas fa-book"></i> Resources</a></li>
-                <li><a href="#"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#tools"><i class="fas fa-tools"></i> Tools</a></li>
+                <li><a href="#tags"><i class="fas fa-tags"></i> Tags</a></li>
+                <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
             </ul>
         </nav>
         
@@ -741,11 +741,13 @@
             <p>MTP offers several advantages over traditional transfer methods. It allows for better synchronization of media files, preserves metadata during transfers, and provides a more reliable connection. The protocol is supported natively in Windows, macOS (through Android File Transfer), and Linux (via libmtp).</p>
             
             <p>For developers, implementing MTP requires understanding the protocol's object-oriented structure. Devices present a hierarchical file system where each file and folder is treated as an object with properties. This structure enables rich metadata exchange and efficient media management.</p>
+            
+            <p>At SiliByteCode, we've developed a comprehensive suite of tools and libraries that simplify MTP implementation for developers across all platforms. Our solutions abstract away the complexities of the protocol while providing full access to its powerful features.</p>
         </div>
         
         <div class="section-divider"></div>
         
-        <div class="resources-grid">
+        <div class="resources-grid" id="resources">
             <div class="resource-column">
                 <h3>Resources</h3>
                 <ul class="resource-list">
@@ -776,7 +778,7 @@
                 </ul>
             </div>
             
-            <div class="resource-column">
+            <div class="resource-column" id="tools">
                 <h3>Free Tools</h3>
                 <ul class="resource-list">
                     <li>
@@ -806,7 +808,7 @@
                 </ul>
             </div>
             
-            <div class="resource-column">
+            <div class="resource-column" id="about">
                 <h3>Company</h3>
                 <ul class="resource-list">
                     <li>
@@ -901,7 +903,6 @@
             const navLinks = document.querySelectorAll('.nav-menu a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    e.preventDefault();
                     navLinks.forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
                     navMenu.classList.remove('active');

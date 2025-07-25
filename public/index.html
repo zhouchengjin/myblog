@@ -3,248 +3,913 @@
 <head>
 	<meta name="generator" content="Hugo 0.148.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My New Hugo Site</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiliByteCode - Advanced MTP Technology Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #0f172a;
+            --darker-bg: #0b1120;
+            --card-bg: rgba(15, 23, 42, 0.65);
+            --primary: #4f46e5;
+            --primary-light: #6366f1;
+            --secondary: #14b8a6;
+            --accent: #f472b6;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --border-color: rgba(148, 163, 184, 0.15);
+            --transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
+            --card-radius: 16px;
+            --gradient-primary: linear-gradient(135deg, var(--primary), #7c3aed);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary), #0d9488);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--dark-bg);
+            background-image: 
+                radial-gradient(at 85% 15%, rgba(79, 70, 229, 0.1) 0px, transparent 40%),
+                radial-gradient(at 20% 85%, rgba(20, 184, 166, 0.15) 0px, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+         
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .site-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .site-logo .logo-icon {
+            background: var(--gradient-primary);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu a i {
+            font-size: 0.9em;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a.active {
+            color: var(--primary-light);
+        }
+
+        .nav-menu a.active::after {
+            width: 100%;
+            background: var(--primary-light);
+        }
+
+         
+        header {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -10%;
+            width: 120%;
+            height: 160%;
+            background: var(--gradient-primary);
+            opacity: 0.15;
+            transform: rotate(-5deg);
+            z-index: -1;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.025em;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.85;
+            font-weight: 400;
+            max-width: 650px;
+            margin: 0 auto 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .article-header {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            padding: 2.5rem;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 25%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+            z-index: -1;
+        }
+
+        .article-title {
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .article-content {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            padding: 2.5rem;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight-text {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 2.5rem 0;
+            opacity: 0.3;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-column {
+            position: relative;
+        }
+
+        .resource-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+            padding-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .resource-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-list li {
+            margin-bottom: 0.85rem;
+        }
+
+        .resource-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resource-list a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .resource-list a i {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(79, 70, 229, 0.15);
+            color: var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .resource-list a:hover {
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        .resource-list a:hover::before {
+            opacity: 0.15;
+        }
+
+        .resource-list a:hover i {
+            background: var(--primary);
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+        }
+
+        footer {
+            background: var(--darker-bg);
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: var(--card-radius) var(--card-radius) 0 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            color: var(--text-secondary);
+        }
+
+        .privacy-link {
+            color: var(--primary-light);
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .privacy-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .privacy-link:hover {
+            color: var(--text-primary);
+        }
+
+        .privacy-link:hover::after {
+            width: 100%;
+        }
+
+         
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .tech-card {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            border: 1px solid var(--border-color);
+            animation: pulse 3s infinite;
+        }
+
+        .tech-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+         
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+         
+        @media (max-width: 900px) {
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-menu {
+                gap: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+            
+            .article-title {
+                font-size: 1.8rem;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+             
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background: var(--darker-bg);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                gap: 2rem;
+                z-index: 1000;
+                transition: var(--transition);
+                border-left: 1px solid var(--border-color);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-card {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .article-content,
+            .article-header {
+                padding: 1.75rem;
+            }
+        }
+
+         
+        .silicode-logo {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .silicode-logo::after {
+            content: "SiliByteCode";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1;
+        }
+        
+        .mtp-diagram {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .mtp-process {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--darker-bg);
+            padding: 20px;
+            border-radius: var(--card-radius);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .mtp-step {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .mtp-step .step-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .mtp-step .step-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .mtp-step .step-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .mtp-arrow {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        
         <nav class="top-nav">
-    <a href="http://localhost:1313/" class="site-logo">
-        <div class="logo-icon">
-            <i class="fas fa-microchip"></i>
-        </div>
-        My New Hugo Site
-    </a>
-    
-    <button class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
-    </button>
-    
-    <ul class="nav-menu">
-        <li><a href="#" class="active"><i class="fas fa-blog"></i> Blog</a></li>
-        <li><a href="#"><i class="fas fa-tools"></i> Tools</a></li>
-        <li><a href="#"><i class="fas fa-tags"></i> Tags</a></li>
-        <li><a href="#"><i class="fas fa-book"></i> Resources</a></li>
-        <li><a href="#"><i class="fas fa-user"></i> About</a></li>
-    </ul>
-</nav>
-        
-        <main>
+            <a href="#" class="site-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                SiliByteCode
+            </a>
             
-    <header>
-        <h1 class="silicode-logo">SiliByteCode</h1>
-        <div class="subtitle">Advanced MTP Protocol Solutions for Next-Generation Media Transfer</div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu">
+                <li><a href="#" class="active"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="#tools"><i class="fas fa-tools"></i> Tools</a></li>
+                <li><a href="#tags"><i class="fas fa-tags"></i> Tags</a></li>
+                <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            </ul>
+        </nav>
         
-        <div class="tech-card">
-    <div class="tech-item">
-        <div class="tech-icon">
-            <i class="fas fa-database"></i>
-        </div>
-        <div class="tech-label">Data Transfer</div>
-    </div>
-    
-    <div class="tech-item">
-        <div class="tech-icon">
-            <i class="fas fa-lock"></i>
-        </div>
-        <div class="tech-label">Secure</div>
-    </div>
-    
-    <div class="tech-item">
-        <div class="tech-icon">
-            <i class="fas fa-bolt"></i>
-        </div>
-        <div class="tech-label">High-Speed</div>
-    </div>
-    
-    <div class="tech-item">
-        <div class="tech-icon">
-            <i class="fas fa-sync-alt"></i>
-        </div>
-        <div class="tech-label">Synchronization</div>
-    </div>
-</div>
-    </header>
-    
-    <div class="article-header">
-        <h2 class="article-title">Understanding MTP: Media Transfer Protocol Basics</h2>
-        <div class="article-meta">
-            <span><i class="far fa-calendar"></i> June 5, 2025</span>
-            <span><i class="far fa-clock"></i> 11.315 Mins Read</span>
-            <span><i class="fas fa-tags"></i> MTP, Protocol, Technology</span>
-        </div>
-        <p>Learn about Media Transfer Protocol (MTP) basics, how it differs from other protocols, and its implementation across various operating systems for secure file transfers.</p>
-    </div>
-    
-    <div class="article-content">
-        <p><span class="highlight-text">Media Transfer Protocol (MTP)</span> is a set of custom extensions to the Picture Transfer Protocol (PTP) devised by Microsoft for communication with portable devices. Initially developed for use with portable media players, MTP is now widely implemented across smartphones, tablets, and digital cameras.</p>
-        
-        <p>Unlike USB Mass Storage (UMS), MTP doesn't give the host computer direct access to the storage media. Instead, it operates at the file level, which allows for safer transfers and better media management capabilities. This approach prevents potential file system corruption that can occur when a device is disconnected during file transfer operations.</p>
-        
-        <div class="mtp-diagram">
-            <div class="mtp-process">
-                <div class="mtp-step">
-                    <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="step-title">Device</div>
-                    <div class="step-desc">Smartphone or Camera</div>
+        <header>
+            <h1 class="silicode-logo">SiliByteCode</h1>
+            <div class="subtitle">Advanced MTP Protocol Solutions for Next-Generation Media Transfer</div>
+            
+            <div class="tech-card">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="tech-label">Data Transfer</div>
                 </div>
                 
-                <div class="mtp-arrow"><i class="fas fa-arrow-right"></i></div>
-                
-                <div class="mtp-step">
-                    <div class="step-icon"><i class="fas fa-exchange-alt"></i></div>
-                    <div class="step-title">MTP Protocol</div>
-                    <div class="step-desc">Secure Transfer</div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="tech-label">Secure</div>
                 </div>
                 
-                <div class="mtp-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="tech-label">High-Speed</div>
+                </div>
                 
-                <div class="mtp-step">
-                    <div class="step-icon"><i class="fas fa-laptop"></i></div>
-                    <div class="step-title">Computer</div>
-                    <div class="step-desc">File Management</div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="tech-label">Synchronization</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="article-header">
+            <h2 class="article-title">Understanding MTP: Media Transfer Protocol Basics</h2>
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> June 5, 2025</span>
+                <span><i class="far fa-clock"></i> 11.315 Mins Read</span>
+                <span><i class="fas fa-tags"></i> MTP, Protocol, Technology</span>
+            </div>
+            <p>Learn about Media Transfer Protocol (MTP) basics, how it differs from other protocols, and its implementation across various operating systems for secure file transfers.</p>
+        </div>
+        
+        <div class="article-content">
+            <p><span class="highlight-text">Media Transfer Protocol (MTP)</span> is a set of custom extensions to the Picture Transfer Protocol (PTP) devised by Microsoft for communication with portable devices. Initially developed for use with portable media players, MTP is now widely implemented across smartphones, tablets, and digital cameras.</p>
+            
+            <p>Unlike USB Mass Storage (UMS), MTP doesn't give the host computer direct access to the storage media. Instead, it operates at the file level, which allows for safer transfers and better media management capabilities. This approach prevents potential file system corruption that can occur when a device is disconnected during file transfer operations.</p>
+            
+            <div class="mtp-diagram">
+                <div class="mtp-process">
+                    <div class="mtp-step">
+                        <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="step-title">Device</div>
+                        <div class="step-desc">Smartphone or Camera</div>
+                    </div>
+                    
+                    <div class="mtp-arrow"><i class="fas fa-arrow-right"></i></div>
+                    
+                    <div class="mtp-step">
+                        <div class="step-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="step-title">MTP Protocol</div>
+                        <div class="step-desc">Secure Transfer</div>
+                    </div>
+                    
+                    <div class="mtp-arrow"><i class="fas fa-arrow-right"></i></div>
+                    
+                    <div class="mtp-step">
+                        <div class="step-icon"><i class="fas fa-laptop"></i></div>
+                        <div class="step-title">Computer</div>
+                        <div class="step-desc">File Management</div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>MTP offers several advantages over traditional transfer methods. It allows for better synchronization of media files, preserves metadata during transfers, and provides a more reliable connection. The protocol is supported natively in Windows, macOS (through Android File Transfer), and Linux (via libmtp).</p>
+            
+            <p>For developers, implementing MTP requires understanding the protocol's object-oriented structure. Devices present a hierarchical file system where each file and folder is treated as an object with properties. This structure enables rich metadata exchange and efficient media management.</p>
+            
+            <p>At SiliByteCode, we've developed a comprehensive suite of tools and libraries that simplify MTP implementation for developers across all platforms. Our solutions abstract away the complexities of the protocol while providing full access to its powerful features.</p>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <div class="resources-grid" id="resources">
+            <div class="resource-column">
+                <h3>Resources</h3>
+                <ul class="resource-list">
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-book"></i>
+                            <span>Documentation</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-video"></i>
+                            <span>Tutorials</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-file-code"></i>
+                            <span>API Reference</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="resource-column" id="tools">
+                <h3>Free Tools</h3>
+                <ul class="resource-list">
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>PDF to Markdown</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-calculator"></i>
+                            <span>Job Worth Calculator</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>File Converter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-code"></i>
+                            <span>MTP Tester</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="resource-column" id="about">
+                <h3>Company</h3>
+                <ul class="resource-list">
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <span>About Us</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Careers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-newspaper"></i>
+                            <span>News</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="resource-column">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                </div>
+                
+                <h3 style="margin-top: 30px;">Newsletter</h3>
+                <div class="resource-list">
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-envelope-open-text"></i>
+                            <span>Subscribe for Updates</span>
+                        </a>
+                    </li>
                 </div>
             </div>
         </div>
         
-        <p>MTP offers several advantages over traditional transfer methods. It allows for better synchronization of media files, preserves metadata during transfers, and provides a more reliable connection. The protocol is supported natively in Windows, macOS (through Android File Transfer), and Linux (via libmtp).</p>
-        
-        <p>For developers, implementing MTP requires understanding the protocol's object-oriented structure. Devices present a hierarchical file system where each file and folder is treated as an object with properties. This structure enables rich metadata exchange and efficient media management.</p>
-    </div>
-    
-    <div class="section-divider"></div>
-    
-    <div class="resources-grid">
-    <div class="resource-column">
-        <h3>Resources</h3>
-        <ul class="resource-list">
-            <li>
-                <a href="#">
-                    <i class="fas fa-blog"></i>
-                    <span>Blog</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-book"></i>
-                    <span>Documentation</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-video"></i>
-                    <span>Tutorials</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-file-code"></i>
-                    <span>API Reference</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="resource-column">
-        <h3>Free Tools</h3>
-        <ul class="resource-list">
-            <li>
-                <a href="#">
-                    <i class="fas fa-file-pdf"></i>
-                    <span>PDF to Markdown</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-calculator"></i>
-                    <span>Job Worth Calculator</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-sync-alt"></i>
-                    <span>File Converter</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-code"></i>
-                    <span>MTP Tester</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="resource-column">
-        <h3>Company</h3>
-        <ul class="resource-list">
-            <li>
-                <a href="#">
-                    <i class="fas fa-users"></i>
-                    <span>About Us</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-briefcase"></i>
-                    <span>Careers</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-envelope"></i>
-                    <span>Contact</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-newspaper"></i>
-                    <span>News</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="resource-column">
-        <h3>Connect</h3>
-        <div class="social-icons">
-            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
-        </div>
-        
-        <h3 style="margin-top: 30px;">Newsletter</h3>
-        <div class="resource-list">
-            <li>
-                <a href="#">
-                    <i class="fas fa-envelope-open-text"></i>
-                    <span>Subscribe for Updates</span>
-                </a>
-            </li>
-        </div>
-    </div>
-</div>
-
-        </main>
-        
         <footer>
-    <div class="footer-content">
-        <div class="copyright">
-            © 2025 My New Hugo Site – Advanced MTP Protocol Solutions and Developer Tools. All rights reserved.
-        </div>
-        <div>
-            <a href="#" class="privacy-link">Privacy Policy</a>
-            <span style="margin: 0 10px; opacity: 0.5;">|</span>
-            <a href="#" class="privacy-link">Terms of Service</a>
-        </div>
-    </div>
-</footer>
+            <div class="footer-content">
+                <div class="copyright">
+                    © 2025 SiliByteCode – Advanced MTP Protocol Solutions and Developer Tools. All rights reserved.
+                </div>
+                <div>
+                    <a href="#" class="privacy-link">Privacy Policy</a>
+                    <span style="margin: 0 10px; opacity: 0.5;">|</span>
+                    <a href="#" class="privacy-link">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <script src="/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (menuBtn && navMenu) {
+                menuBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            
+            const yearSpan = document.querySelector('.copyright');
+            if (yearSpan) {
+                const currentYear = new Date().getFullYear();
+                yearSpan.innerHTML = yearSpan.innerHTML.replace('2025', currentYear);
+            }
+            
+            
+            const techIcons = document.querySelectorAll('.tech-icon');
+            techIcons.forEach((icon, index) => {
+                icon.style.animationDelay = `${index * 0.3}s`;
+            });
+            
+            
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
